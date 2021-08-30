@@ -31,6 +31,6 @@ async def delete_user(user_id, current_user) -> Status:
         deleted_count = await Users.filter(id=user_id).delete()
         if not deleted_count:
             raise HTTPException(status_code=404, detail=f"User {user_id} not found")
-        return Status(message=f"Delted user {user_id}")
+        return Status(message=f"Deleted user {user_id}")
 
     raise HTTPException(status_code=403, detail=f"Not authorized to delete")
